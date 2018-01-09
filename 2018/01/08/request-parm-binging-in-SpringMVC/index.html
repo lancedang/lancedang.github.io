@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>request parm binging in SpringMVC | PPdai-Archicture Department</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="主题 如何在SpringMVC controller中获取请求request 里的参数 request parameter 如何将请求参数绑定到不同的参数对象 如何使用@RequestParam，并且知晓何时不需要该注解 以下案例都是get 请求获取request 参数 且要明白request上的请求参数 都是以String形式pass的，Spring需要做很多中间处理，将String类型的值转成">
+<meta property="og:type" content="article">
+<meta property="og:title" content="request parm binging in SpringMVC">
+<meta property="og:url" content="http://yoursite.com/2018/01/08/request-parm-binging-in-SpringMVC/index.html">
+<meta property="og:site_name" content="PPdai-Archicture Department">
+<meta property="og:description" content="主题 如何在SpringMVC controller中获取请求request 里的参数 request parameter 如何将请求参数绑定到不同的参数对象 如何使用@RequestParam，并且知晓何时不需要该注解 以下案例都是get 请求获取request 参数 且要明白request上的请求参数 都是以String形式pass的，Spring需要做很多中间处理，将String类型的值转成">
+<meta property="og:updated_time" content="2018-01-08T03:02:46.287Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="request parm binging in SpringMVC">
+<meta name="twitter:description" content="主题 如何在SpringMVC controller中获取请求request 里的参数 request parameter 如何将请求参数绑定到不同的参数对象 如何使用@RequestParam，并且知晓何时不需要该注解 以下案例都是get 请求获取request 参数 且要明白request上的请求参数 都是以String形式pass的，Spring需要做很多中间处理，将String类型的值转成">
+  
+    <link rel="alternate" href="/atom.xml" title="PPdai-Archicture Department" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">PPdai-Archicture Department</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-request-parm-binging-in-SpringMVC" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/08/request-parm-binging-in-SpringMVC/" class="article-date">
+  <time datetime="2018-01-08T03:01:46.000Z" itemprop="datePublished">2018-01-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      request parm binging in SpringMVC
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h4><ul>
+<li>如何在SpringMVC controller中获取请求request 里的参数 request parameter</li>
+<li>如何将请求参数绑定到不同的参数对象</li>
+<li>如何使用@RequestParam，并且知晓何时不需要该注解</li>
+<li>以下案例都是get 请求获取request 参数</li>
+<li>且要明白request上的请求参数 都是以String形式pass的，Spring需要做很多中间处理，将String类型的值转成Controller中你设定的目的类型</li>
+</ul>
+<h4 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h4><ul>
+<li>SpringBoot </li>
+<li>POSTMAN</li>
+</ul>
+<h4 id="RequestParam-案例"><a href="#RequestParam-案例" class="headerlink" title="@RequestParam 案例"></a>@RequestParam 案例</h4><p>@Requestparam 注解用来建立 方法参数(method param)与请求参数(request param)的对应关系</p>
+<h5 id="1-绑定方法参数与请求参数的对应关系"><a href="#1-绑定方法参数与请求参数的对应关系" class="headerlink" title="1. 绑定方法参数与请求参数的对应关系"></a>1. 绑定方法参数与请求参数的对应关系</h5><ul>
+<li>url: /books?category=java  //参数category 不可缺</li>
+<li>Controller 代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(&quot;/books&quot;)</span><br><span class="line">//@RequestParam(&quot;category&quot;) 建立 url中 请求参数-category 和 方法参数-cat 之间的对应关系 </span><br><span class="line">//注：当请求参数和方法参数同名时，可省略@RequestParam中的value 值-自动绑定</span><br><span class="line">public String books(@RequestParam(&quot;category&quot;) String cat) &#123;</span><br><span class="line">    //bussiness logic</span><br><span class="line">    sout(&quot;category &quot; + cat)</span><br><span class="line">    return &quot;book.jsp&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="2-自动类型转换"><a href="#2-自动类型转换" class="headerlink" title="2. 自动类型转换"></a>2. 自动类型转换</h5><p>当Request Param 不是 String类型如而是 number时，我们可自动将其转成 number类型的 method 参数</p>
+<ul>
+<li>url: /books?rate=5&amp;maxprice=150.55</li>
+<li>目的：将rate转成int，将 maxprice 转成 BigDecimal</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@RequestParam(&quot;category&quot;) </span><br><span class="line">//只需直接指定想要转变成的类型，如 rate 为 int，maxprice 为 BigDecimal</span><br><span class="line">public String books(@RequestParam(&quot;rate&quot;) int rate, </span><br><span class="line">                        @RequestParm(&quot;maxprice&quot;) BigDecimal maxprice) &#123;</span><br><span class="line">    //bussiness logic</span><br><span class="line">    sout(&quot;rate &quot; + rate +&quot;, maxprice &quot; + maxprice)</span><br><span class="line">    return &quot;book.jsp&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="3-request-参数为日期类型"><a href="#3-request-参数为日期类型" class="headerlink" title="3. request 参数为日期类型"></a>3. request 参数为日期类型</h5><ul>
+<li>url: /books?from=2012-01-12</li>
+<li>目的：想传递一个日期类型，且controller自动将字符串“2012-01-12” 转成controller方法参数中日期格式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(&quot;/books&quot;)</span><br><span class="line">public String books(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) </span><br><span class="line">                    @RequestParam(&quot;from&quot;) LocalDate from) &#123;</span><br><span class="line">        //首先用 @DateTimeFormat注解，而且是用其中的ISO.DATE做格式转化, DATE 标识：yyyy-MM-dd</span><br><span class="line">        //再用LocalDate格式做参数，LocalDate 标识：year-month-day</span><br><span class="line">        //java.util.Date：年 月 日 hh mm ss</span><br><span class="line">        System.out.println(&quot;from &quot; + from);</span><br><span class="line">        return &quot;book.jsp&quot;;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="4-request-参数为不必须"><a href="#4-request-参数为不必须" class="headerlink" title="4. request 参数为不必须"></a>4. request 参数为不必须</h5><ul>
+<li>url: /books?category=math</li>
+<li>category 不是必须的<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(&quot;/books&quot;)</span><br><span class="line">public String books(@RequestParam(&quot;category&quot;, required=false) String cat) &#123;</span><br><span class="line">        //@RequestParam 默认required = true，为false时 该参数不必须</span><br><span class="line">        System.out.println(&quot;category &quot; + cat);</span><br><span class="line">        return &quot;book.jsp&quot;;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="5-request-自带默认值-用于以下1-2种场景"><a href="#5-request-自带默认值-用于以下1-2种场景" class="headerlink" title="5. request 自带默认值, 用于以下1/2种场景"></a>5. request 自带默认值, 用于以下1/2种场景</h5><ul>
+<li>url1: /books?  //输出：history  –category 为 null, required 可以为 false</li>
+<li>url2: /books?category=  //输出：history  –category 为 null</li>
+<li>url3: /books?category=””  // 输出：””</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(&quot;/books&quot;)</span><br><span class="line">public String books(@RequestParam(&quot;category&quot;, defaultValue=&quot;history&quot;) String cat) &#123;</span><br><span class="line">        System.out.println(&quot;category &quot; + cat);</span><br><span class="line">        return &quot;book.jsp&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="6-RequestParam-为-List-or-array"><a href="#6-RequestParam-为-List-or-array" class="headerlink" title="6. @RequestParam 为 List or array"></a>6. @RequestParam 为 List or array</h5><ul>
+<li>url: /books?authors=zhangsi&amp;authors=lisi </li>
+<li>request 中<strong>同名的参数</strong>将自动转化成 controller 中的@RequestParam List ,必要时可用 value 属性指定参数名</li>
+<li>方法参数写成 String[] 也可以<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(&quot;/books&quot;)</span><br><span class="line">public String books(@RequestParam List&lt;String&gt; authors) &#123;</span><br><span class="line">        System.out.println(&quot;authors &quot; + authors);</span><br><span class="line">        return &quot;book.jsp&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="7-RequestParam-为-Map，一个-key-对应一个value值"><a href="#7-RequestParam-为-Map，一个-key-对应一个value值" class="headerlink" title="7. @RequestParam 为 Map，一个 key 对应一个value值"></a>7. @RequestParam 为 Map，一个 key 对应一个value值</h5><ul>
+<li>url: /books?category=math&amp;authors=lisi </li>
+<li>controller 参数在这种情况下不能通过 @RequestParam的 value 指定具体request 参数名</li>
+<li>controller参数类型 为 Map 就出现了一个 谁是 Key，谁是Value的问题,这个是自动装配</li>
+<li>根据 requet <strong>参数请求顺序</strong>，前面的为 key , 后面的为 value<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(&quot;/books&quot;)</span><br><span class="line">public String books(@RequestParam Map&lt;String, String&gt; book) &#123;</span><br><span class="line">        </span><br><span class="line">        System.out.println(&quot;book &quot; + book);</span><br><span class="line">        return &quot;book.jsp&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">输出：&#123;category=math, authors=lisi&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="8-RequestParam-为MultiValueMap，一个-key-对应一个多个-value-值"><a href="#8-RequestParam-为MultiValueMap，一个-key-对应一个多个-value-值" class="headerlink" title="8. @RequestParam 为MultiValueMap，一个 key 对应一个多个 value 值"></a>8. @RequestParam 为MultiValueMap，一个 key 对应一个多个 value 值</h5><ul>
+<li>url: /books?category=math&amp;authors=lisi&amp;authors=zhangsi</li>
+<li>参数同样具有顺序性，第一个为key, 其余同名参数封装为 value<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(&quot;/books&quot;)</span><br><span class="line">public String books(@RequestParam MultiValueMap&lt;String, List&lt;String&gt;&gt; book ) &#123;</span><br><span class="line">        </span><br><span class="line">        System.out.println(&quot;book &quot; + book);</span><br><span class="line">        return &quot;book.jsp&quot;;</span><br><span class="line">&#125;</span><br><span class="line">输出：&#123;category=[math], authors=[lisi, zhangsi]&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="9-不声明-RequestParam"><a href="#9-不声明-RequestParam" class="headerlink" title="9. 不声明 @RequestParam"></a>9. 不声明 @RequestParam</h5><ul>
+<li>url: /books?category=math</li>
+<li>默认 request 和 controller 方法参数同名，可省略 @RequestParam<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(&quot;/books&quot;)</span><br><span class="line">public String books(String category) &#123;</span><br><span class="line">        </span><br><span class="line">        System.out.println(&quot;category &quot; + category);</span><br><span class="line">        return &quot;book.jsp&quot;;</span><br><span class="line">&#125;</span><br><span class="line">输出：math</span><br><span class="line">建议：指明 @RequestParam</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="10-request-参数为field-而-controller-参数为-Object"><a href="#10-request-参数为field-而-controller-参数为-Object" class="headerlink" title="10. request 参数为field, 而 controller 参数为 Object"></a>10. request 参数为field, 而 controller 参数为 Object</h5><ul>
+<li>url: /books?category=math&amp;author=lisi</li>
+<li>Object 对象 封装了两个field: category, author</li>
+<li>这个转换非常有用，尤其是多request 参数转成封装对象时</li>
+<li>注意此时是<strong>没有@RequestParam的</strong>，有则400<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class Box&#123;</span><br><span class="line">    String category;</span><br><span class="line">    String author;</span><br><span class="line">    getter;</span><br><span class="line">    setter;</span><br><span class="line">    String toString() &#123;</span><br><span class="line">        return &quot;category=&quot; + category +&quot;, author=&quot; + author;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@RequestMapping(&quot;/books&quot;)</span><br><span class="line">public String books(Box box ) &#123;</span><br><span class="line">        System.out.println(&quot;box &quot; + box);</span><br><span class="line">        return &quot;book.jsp&quot;;</span><br><span class="line">&#125;</span><br><span class="line">输出：category=math, author=lisi</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h5><ul>
+<li>以上 @RequestMapping 省略掉 method 属性，则说明所匹配的方法 <strong>可以接受任何method请求</strong>，PUT/GET/DELETE/POST，并非默认为GET</li>
+<li>当method 为 PUT/POST/DELTE时，url 中仍可以<strong>用”url?name=lisi”形式</strong> 传递参数，因为POSTMAN中这些方法没有parameter选项，直接写在url中即可</li>
+</ul>
+<h5 id="参考：https-reversecoding-net-spring-mvc-requestparam-binding-request-parameters-default-test"><a href="#参考：https-reversecoding-net-spring-mvc-requestparam-binding-request-parameters-default-test" class="headerlink" title="参考：https://reversecoding.net/spring-mvc-requestparam-binding-request-parameters/#default-test"></a>参考：<a href="https://reversecoding.net/spring-mvc-requestparam-binding-request-parameters/#default-test" target="_blank" rel="noopener">https://reversecoding.net/spring-mvc-requestparam-binding-request-parameters/#default-test</a></h5>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/08/request-parm-binging-in-SpringMVC/" data-id="cjc7dg7hg0003gfjxmkkmjb72" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/01/08/SpringBoot 测试-Web层/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          SpringBoot 测试-Web层
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/08/first-blog/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">first blog</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/01/08/SpringBoot 测试-Web层/">SpringBoot 测试-Web层</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/08/request-parm-binging-in-SpringMVC/">request parm binging in SpringMVC</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/08/first-blog/">first blog</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/04/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 dangdang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
