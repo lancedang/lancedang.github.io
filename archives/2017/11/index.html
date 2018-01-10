@@ -3,19 +3,17 @@
 <head>
     <meta charset="utf-8">
     
-    <title>first blog | 拍拍贷中间件团队博客</title>
+    <title>Archive: 2017/11 | 拍拍贷中间件团队博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="hexo 在写作的时候，如果在文中添加">
-<meta name="keywords" content="hexo">
-<meta property="og:type" content="article">
-<meta property="og:title" content="first blog">
-<meta property="og:url" content="http://yoursite.com/2018/01/08/first-blog/index.html">
+    <meta name="description" content="致力于成为中国第一，世界一流的中间件技术团队">
+<meta property="og:type" content="website">
+<meta property="og:title" content="拍拍贷中间件团队博客">
+<meta property="og:url" content="http://yoursite.com/archives/2017/11/index.html">
 <meta property="og:site_name" content="拍拍贷中间件团队博客">
-<meta property="og:description" content="hexo 在写作的时候，如果在文中添加">
-<meta property="og:updated_time" content="2018-01-10T09:06:01.237Z">
+<meta property="og:description" content="致力于成为中国第一，世界一流的中间件技术团队">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="first blog">
-<meta name="twitter:description" content="hexo 在写作的时候，如果在文中添加">
+<meta name="twitter:title" content="拍拍贷中间件团队博客">
+<meta name="twitter:description" content="致力于成为中国第一，世界一流的中间件技术团队">
     
 
     
@@ -210,161 +208,45 @@
 </aside>
 
             
-            <section id="main"><article id="post-first-blog" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+            <section id="main"><div class="timeline timeline-wrap">
+    
+            <div class="timeline-row timeline-row-major">
+                <span class="node"><i class="fa fa-calendar"></i></span>
+                <h1 class="title">2017</h1>
+            </div>
         
-        
-            <header class="article-header">
+        <div class="timeline-row">
+            <span class="node"></span>
+            <div class="content">
                 
     
-        <h1 class="article-title" itemprop="name">
-            first blog
+        <h1 itemprop="name">
+            <a class="timeline-article-title" href="/2017/11/12/hello-world/">Hello World</a>
         </h1>
     
 
-                
-                    <div class="article-meta">
-                        
+                <div class="article-meta">
+                    
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/01/08/first-blog/">
-            <time datetime="2018-01-08T02:53:39.000Z" itemprop="datePublished">2018-01-08</time>
+        <a href="/2017/11/12/hello-world/">
+            <time datetime="2017-11-12T01:40:12.000Z" itemprop="datePublished">2017-11-12</time>
         </a>
     </div>
 
 
-                        
-                        
+                    
+                    
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/hexo/">hexo</a>
     </div>
 
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <ul>
-<li><p>hexo 在写作的时候，如果在文中添加<a id="more"></a>则该标记之前的部分就会成为该文章的简述，显示在首页里。但自己一直感觉如果可以自行截取会更好，Google 了一下也有人有这样的需求，太没有贴出来具体的方法，在简单的学习了一下 JS 之后贴出自己的解决方案。</p>
-</li>
-<li><p>在 hexo 的 github 上看到有人说是跟主题有关，费死八难找到了代码的关键部分：文件/themes/[主题名]/layout/_partial/article.ejs其中有一段为：</p>
-</li>
-</ul>
-<!--more-->
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://yoursite.com/2018/01/08/first-blog/" data-id="cjc8ucffo0000y9jxiwkdw05s" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-
-        </footer>
-    </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/2018/01/08/request-parm-binging-in-SpringMVC/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    request parm binging in SpringMVC
-                
+                </div>
             </div>
-        </a>
+        </div>
     
-    
-        <a href="/2017/12/12/SpringBoot 测试-Web层/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">SpringBoot 测试-Web层</div>
-        </a>
-    
-</nav>
-
-
-    
-</article>
-
-
-    
-    
-
+</div>
 </section>
             
                 
