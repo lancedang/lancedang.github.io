@@ -209,6 +209,130 @@
 
             
             <section id="main">
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/01/10/hello-world/">Hello World</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/01/10/hello-world/">
+            <time datetime="2018-01-10T05:08:15.508Z" itemprop="datePublished">2018-01-10</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></p>
+            <p class="article-more-link">
+                <a href="/2018/01/10/hello-world/#more">Read More</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://yoursite.com/2018/01/10/hello-world/" data-id="cjc8lu4rh0002lsjxhdltuo6z" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-SpringBoot 测试-Web层" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -227,7 +351,7 @@
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/2018/01/10/SpringBoot 测试-Web层/">
-            <time datetime="2018-01-10T04:51:20.513Z" itemprop="datePublished">2018-01-10</time>
+            <time datetime="2018-01-10T05:05:36.599Z" itemprop="datePublished">2018-01-10</time>
         </a>
     </div>
 
@@ -252,10 +376,6 @@
 <li>full Spring application context 和 特定 application context 的概念</li>
 <li>Service 和 Dao 要不要依存在 Tomcat/mysql 下来测试</li>
 <li>Controller/Service/Dao 分层测试 VS 集成测试</li>
-</ul>
-<h4 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h4><ul>
-<li>最开始几个例子 都不涉及 组件依赖，即 @controller 没有 autowire @Service 组件</li>
-<li>后面会涉及 依赖注入的问题</li>
 </ul></p>
             <p class="article-more-link">
                 <a href="/2018/01/10/SpringBoot 测试-Web层/#more">Read More</a>
@@ -269,7 +389,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/01/10/SpringBoot 测试-Web层/" data-id="cjc8l8ghy0000i3jxyaolyhb4" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://yoursite.com/2018/01/10/SpringBoot 测试-Web层/" data-id="cjc8lu4rb0000lsjxlq9hcpht" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -377,81 +497,16 @@
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            <h4 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h4><ul>
+            <p><h4 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h4><ul>
 <li>如何在SpringMVC controller中获取请求request 里的参数 request parameter</li>
 <li>如何将请求参数绑定到不同的参数对象</li>
 <li>如何使用@RequestParam，并且知晓何时不需要该注解</li>
 <li>以下案例都是get 请求获取request 参数</li>
 <li>且要明白request上的请求参数 都是以String形式pass的，Spring需要做很多中间处理，将String类型的值转成Controller中你设定的目的类型</li>
-</ul>
-<h4 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h4><ul>
-<li>SpringBoot </li>
-<li>POSTMAN</li>
-</ul>
-<h4 id="RequestParam-案例"><a href="#RequestParam-案例" class="headerlink" title="@RequestParam 案例"></a>@RequestParam 案例</h4><p>@Requestparam 注解用来建立 方法参数(method param)与请求参数(request param)的对应关系</p>
-<h5 id="1-绑定方法参数与请求参数的对应关系"><a href="#1-绑定方法参数与请求参数的对应关系" class="headerlink" title="1. 绑定方法参数与请求参数的对应关系"></a>1. 绑定方法参数与请求参数的对应关系</h5><ul>
-<li>url: /books?category=java  //参数category 不可缺</li>
-<li>Controller 代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(&quot;/books&quot;)</span><br><span class="line">//@RequestParam(&quot;category&quot;) 建立 url中 请求参数-category 和 方法参数-cat 之间的对应关系 </span><br><span class="line">//注：当请求参数和方法参数同名时，可省略@RequestParam中的value 值-自动绑定</span><br><span class="line">public String books(@RequestParam(&quot;category&quot;) String cat) &#123;</span><br><span class="line">    //bussiness logic</span><br><span class="line">    sout(&quot;category &quot; + cat)</span><br><span class="line">    return &quot;book.jsp&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h5 id="2-自动类型转换"><a href="#2-自动类型转换" class="headerlink" title="2. 自动类型转换"></a>2. 自动类型转换</h5><p>当Request Param 不是 String类型如而是 number时，我们可自动将其转成 number类型的 method 参数</p>
-<ul>
-<li>url: /books?rate=5&amp;maxprice=150.55</li>
-<li>目的：将rate转成int，将 maxprice 转成 BigDecimal</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@RequestParam(&quot;category&quot;) </span><br><span class="line">//只需直接指定想要转变成的类型，如 rate 为 int，maxprice 为 BigDecimal</span><br><span class="line">public String books(@RequestParam(&quot;rate&quot;) int rate, </span><br><span class="line">                        @RequestParm(&quot;maxprice&quot;) BigDecimal maxprice) &#123;</span><br><span class="line">    //bussiness logic</span><br><span class="line">    sout(&quot;rate &quot; + rate +&quot;, maxprice &quot; + maxprice)</span><br><span class="line">    return &quot;book.jsp&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="3-request-参数为日期类型"><a href="#3-request-参数为日期类型" class="headerlink" title="3. request 参数为日期类型"></a>3. request 参数为日期类型</h5><ul>
-<li>url: /books?from=2012-01-12</li>
-<li>目的：想传递一个日期类型，且controller自动将字符串“2012-01-12” 转成controller方法参数中日期格式</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(&quot;/books&quot;)</span><br><span class="line">public String books(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) </span><br><span class="line">                    @RequestParam(&quot;from&quot;) LocalDate from) &#123;</span><br><span class="line">        //首先用 @DateTimeFormat注解，而且是用其中的ISO.DATE做格式转化, DATE 标识：yyyy-MM-dd</span><br><span class="line">        //再用LocalDate格式做参数，LocalDate 标识：year-month-day</span><br><span class="line">        //java.util.Date：年 月 日 hh mm ss</span><br><span class="line">        System.out.println(&quot;from &quot; + from);</span><br><span class="line">        return &quot;book.jsp&quot;;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h5 id="4-request-参数为不必须"><a href="#4-request-参数为不必须" class="headerlink" title="4. request 参数为不必须"></a>4. request 参数为不必须</h5><ul>
-<li>url: /books?category=math</li>
-<li>category 不是必须的<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(&quot;/books&quot;)</span><br><span class="line">public String books(@RequestParam(&quot;category&quot;, required=false) String cat) &#123;</span><br><span class="line">        //@RequestParam 默认required = true，为false时 该参数不必须</span><br><span class="line">        System.out.println(&quot;category &quot; + cat);</span><br><span class="line">        return &quot;book.jsp&quot;;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h5 id="5-request-自带默认值-用于以下1-2种场景"><a href="#5-request-自带默认值-用于以下1-2种场景" class="headerlink" title="5. request 自带默认值, 用于以下1/2种场景"></a>5. request 自带默认值, 用于以下1/2种场景</h5><ul>
-<li>url1: /books?  //输出：history  –category 为 null, required 可以为 false</li>
-<li>url2: /books?category=  //输出：history  –category 为 null</li>
-<li>url3: /books?category=””  // 输出：””</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(&quot;/books&quot;)</span><br><span class="line">public String books(@RequestParam(&quot;category&quot;, defaultValue=&quot;history&quot;) String cat) &#123;</span><br><span class="line">        System.out.println(&quot;category &quot; + cat);</span><br><span class="line">        return &quot;book.jsp&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="6-RequestParam-为-List-or-array"><a href="#6-RequestParam-为-List-or-array" class="headerlink" title="6. @RequestParam 为 List or array"></a>6. @RequestParam 为 List or array</h5><ul>
-<li>url: /books?authors=zhangsi&amp;authors=lisi </li>
-<li>request 中<strong>同名的参数</strong>将自动转化成 controller 中的@RequestParam List ,必要时可用 value 属性指定参数名</li>
-<li>方法参数写成 String[] 也可以<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(&quot;/books&quot;)</span><br><span class="line">public String books(@RequestParam List&lt;String&gt; authors) &#123;</span><br><span class="line">        System.out.println(&quot;authors &quot; + authors);</span><br><span class="line">        return &quot;book.jsp&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h5 id="7-RequestParam-为-Map，一个-key-对应一个value值"><a href="#7-RequestParam-为-Map，一个-key-对应一个value值" class="headerlink" title="7. @RequestParam 为 Map，一个 key 对应一个value值"></a>7. @RequestParam 为 Map，一个 key 对应一个value值</h5><ul>
-<li>url: /books?category=math&amp;authors=lisi </li>
-<li>controller 参数在这种情况下不能通过 @RequestParam的 value 指定具体request 参数名</li>
-<li>controller参数类型 为 Map 就出现了一个 谁是 Key，谁是Value的问题,这个是自动装配</li>
-<li>根据 requet <strong>参数请求顺序</strong>，前面的为 key , 后面的为 value<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(&quot;/books&quot;)</span><br><span class="line">public String books(@RequestParam Map&lt;String, String&gt; book) &#123;</span><br><span class="line">        </span><br><span class="line">        System.out.println(&quot;book &quot; + book);</span><br><span class="line">        return &quot;book.jsp&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">输出：&#123;category=math, authors=lisi&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h5 id="8-RequestParam-为MultiValueMap，一个-key-对应一个多个-value-值"><a href="#8-RequestParam-为MultiValueMap，一个-key-对应一个多个-value-值" class="headerlink" title="8. @RequestParam 为MultiValueMap，一个 key 对应一个多个 value 值"></a>8. @RequestParam 为MultiValueMap，一个 key 对应一个多个 value 值</h5><ul>
-<li>url: /books?category=math&amp;authors=lisi&amp;authors=zhangsi</li>
-<li>参数同样具有顺序性，第一个为key, 其余同名参数封装为 value<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(&quot;/books&quot;)</span><br><span class="line">public String books(@RequestParam MultiValueMap&lt;String, List&lt;String&gt;&gt; book ) &#123;</span><br><span class="line">        </span><br><span class="line">        System.out.println(&quot;book &quot; + book);</span><br><span class="line">        return &quot;book.jsp&quot;;</span><br><span class="line">&#125;</span><br><span class="line">输出：&#123;category=[math], authors=[lisi, zhangsi]&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h5 id="9-不声明-RequestParam"><a href="#9-不声明-RequestParam" class="headerlink" title="9. 不声明 @RequestParam"></a>9. 不声明 @RequestParam</h5><ul>
-<li>url: /books?category=math</li>
-<li>默认 request 和 controller 方法参数同名，可省略 @RequestParam<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(&quot;/books&quot;)</span><br><span class="line">public String books(String category) &#123;</span><br><span class="line">        </span><br><span class="line">        System.out.println(&quot;category &quot; + category);</span><br><span class="line">        return &quot;book.jsp&quot;;</span><br><span class="line">&#125;</span><br><span class="line">输出：math</span><br><span class="line">建议：指明 @RequestParam</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h5 id="10-request-参数为field-而-controller-参数为-Object"><a href="#10-request-参数为field-而-controller-参数为-Object" class="headerlink" title="10. request 参数为field, 而 controller 参数为 Object"></a>10. request 参数为field, 而 controller 参数为 Object</h5><ul>
-<li>url: /books?category=math&amp;author=lisi</li>
-<li>Object 对象 封装了两个field: category, author</li>
-<li>这个转换非常有用，尤其是多request 参数转成封装对象时</li>
-<li>注意此时是<strong>没有@RequestParam的</strong>，有则400<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class Box&#123;</span><br><span class="line">    String category;</span><br><span class="line">    String author;</span><br><span class="line">    getter;</span><br><span class="line">    setter;</span><br><span class="line">    String toString() &#123;</span><br><span class="line">        return &quot;category=&quot; + category +&quot;, author=&quot; + author;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@RequestMapping(&quot;/books&quot;)</span><br><span class="line">public String books(Box box ) &#123;</span><br><span class="line">        System.out.println(&quot;box &quot; + box);</span><br><span class="line">        return &quot;book.jsp&quot;;</span><br><span class="line">&#125;</span><br><span class="line">输出：category=math, author=lisi</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h5 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h5><ul>
-<li>以上 @RequestMapping 省略掉 method 属性，则说明所匹配的方法 <strong>可以接受任何method请求</strong>，PUT/GET/DELETE/POST，并非默认为GET</li>
-<li>当method 为 PUT/POST/DELTE时，url 中仍可以<strong>用”url?name=lisi”形式</strong> 传递参数，因为POSTMAN中这些方法没有parameter选项，直接写在url中即可</li>
-</ul>
-<h5 id="参考：https-reversecoding-net-spring-mvc-requestparam-binding-request-parameters-default-test"><a href="#参考：https-reversecoding-net-spring-mvc-requestparam-binding-request-parameters-default-test" class="headerlink" title="参考：https://reversecoding.net/spring-mvc-requestparam-binding-request-parameters/#default-test"></a>参考：<a href="https://reversecoding.net/spring-mvc-requestparam-binding-request-parameters/#default-test" target="_blank" rel="noopener">https://reversecoding.net/spring-mvc-requestparam-binding-request-parameters/#default-test</a></h5>
+</ul></p>
+            <p class="article-more-link">
+                <a href="/2018/01/08/request-parm-binging-in-SpringMVC/#more">Read More</a>
+            </p>
         
         </div>
         <footer class="article-footer">
@@ -461,7 +516,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/01/08/request-parm-binging-in-SpringMVC/" data-id="cjc8l8gi70003i3jxl0dy933v" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://yoursite.com/2018/01/08/request-parm-binging-in-SpringMVC/" data-id="cjc8lu4rj0003lsjxf2sfyrq3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -569,8 +624,11 @@
         
         <div class="article-entry" itemprop="articleBody">
         
-            
-            
+            <p><ul>
+<li><p>hexo 在写作的时候，如果在文中添加</p>
+            <p class="article-more-link">
+                <a href="/2018/01/08/first-blog/#more">Read More</a>
+            </p>
         
         </div>
         <footer class="article-footer">
@@ -580,135 +638,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/01/08/first-blog/" data-id="cjc8l8gi30001i3jx7brepfgy" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/01/04/hello-world/">Hello World</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/01/04/hello-world/">
-            <time datetime="2018-01-04T11:39:22.135Z" itemprop="datePublished">2018-01-04</time>
-        </a>
-    </div>
-
-
-                        
-                        
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://yoursite.com/2018/01/04/hello-world/" data-id="cjc8l8gi60002i3jxp8cd317l" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://yoursite.com/2018/01/08/first-blog/" data-id="cjc8lu4rf0001lsjxwut4wj1c" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -797,6 +727,25 @@
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2018/01/10/hello-world/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/01/10/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2018-01-10T05:08:15.508Z" itemprop="datePublished">2018-01-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2018/01/10/SpringBoot 测试-Web层/" class="thumbnail">
     
     
@@ -809,7 +758,7 @@
                         <div class="item-inner">
                             <p class="item-category"></p>
                             <p class="item-title"><a href="/2018/01/10/SpringBoot 测试-Web层/" class="title">SpringBoot 测试-Web层</a></p>
-                            <p class="item-date"><time datetime="2018-01-10T04:51:20.513Z" itemprop="datePublished">2018-01-10</time></p>
+                            <p class="item-date"><time datetime="2018-01-10T05:05:36.599Z" itemprop="datePublished">2018-01-10</time></p>
                         </div>
                     </li>
                 
@@ -848,25 +797,6 @@
                             <p class="item-category"></p>
                             <p class="item-title"><a href="/2018/01/08/first-blog/" class="title">first blog</a></p>
                             <p class="item-date"><time datetime="2018-01-08T02:53:39.000Z" itemprop="datePublished">2018-01-08</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/01/04/hello-world/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/01/04/hello-world/" class="title">Hello World</a></p>
-                            <p class="item-date"><time datetime="2018-01-04T11:39:22.135Z" itemprop="datePublished">2018-01-04</time></p>
                         </div>
                     </li>
                 
