@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>first blog | 拍拍贷中间件团队博客</title>
+    <title>拍拍贷中间件团队博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="hexo 在写作的时候，如果在文中添加">
+    <meta name="description" content="什么是 SSH SSH 是一种网络协议，该协议用于计算机间通信/登录信息的加密 使用场景主要是远程登录 早期，互联网通信使用明文，一旦被截获，信息则泄露 而，若 Client 通过 SSH 协议加密登录 Server, 我们则认为这种登录是安全的，即使登录信息中途被截获  SSH 的实现 SSH 是一种协议 实现版本多样 Linux 中实现版本是 OpenSSH Windows 中则是 PuTTY">
 <meta property="og:type" content="article">
-<meta property="og:title" content="first blog">
-<meta property="og:url" content="http://yoursite.com/2018/01/08/first-blog/index.html">
+<meta property="og:title" content="拍拍贷中间件团队博客">
+<meta property="og:url" content="http://yoursite.com/2018/01/10/SSH 原理与应用/index.html">
 <meta property="og:site_name" content="拍拍贷中间件团队博客">
-<meta property="og:description" content="hexo 在写作的时候，如果在文中添加">
-<meta property="og:updated_time" content="2018-01-10T05:07:45.363Z">
+<meta property="og:description" content="什么是 SSH SSH 是一种网络协议，该协议用于计算机间通信/登录信息的加密 使用场景主要是远程登录 早期，互联网通信使用明文，一旦被截获，信息则泄露 而，若 Client 通过 SSH 协议加密登录 Server, 我们则认为这种登录是安全的，即使登录信息中途被截获  SSH 的实现 SSH 是一种协议 实现版本多样 Linux 中实现版本是 OpenSSH Windows 中则是 PuTTY">
+<meta property="og:updated_time" content="2018-01-10T07:26:28.865Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="first blog">
-<meta name="twitter:description" content="hexo 在写作的时候，如果在文中添加">
+<meta name="twitter:title" content="拍拍贷中间件团队博客">
+<meta name="twitter:description" content="什么是 SSH SSH 是一种网络协议，该协议用于计算机间通信/登录信息的加密 使用场景主要是远程登录 早期，互联网通信使用明文，一旦被截获，信息则泄露 而，若 Client 通过 SSH 协议加密登录 Server, 我们则认为这种登录是安全的，即使登录信息中途被截获  SSH 的实现 SSH 是一种协议 实现版本多样 Linux 中实现版本是 OpenSSH Windows 中则是 PuTTY">
     
 
     
@@ -209,47 +209,108 @@
 </aside>
 
             
-            <section id="main"><article id="post-first-blog" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-SSH 原理与应用" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
-        
-            <header class="article-header">
-                
-    
-        <h1 class="article-title" itemprop="name">
-            first blog
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/01/08/first-blog/">
-            <time datetime="2018-01-08T02:53:39.000Z" itemprop="datePublished">2018-01-08</time>
-        </a>
-    </div>
-
-
-                        
-                        
-                    </div>
-                
-            </header>
         
         
         <div class="article-entry" itemprop="articleBody">
         
             
-            <ul>
-<li><p>hexo 在写作的时候，如果在文中添加<a id="more"></a>则该标记之前的部分就会成为该文章的简述，显示在首页里。但自己一直感觉如果可以自行截取会更好，Google 了一下也有人有这样的需求，太没有贴出来具体的方法，在简单的学习了一下 JS 之后贴出自己的解决方案。</p>
-</li>
-<li><p>在 hexo 的 github 上看到有人说是跟主题有关，费死八难找到了代码的关键部分：文件/themes/[主题名]/layout/_partial/article.ejs其中有一段为：</p>
+            <h4 id="什么是-SSH"><a href="#什么是-SSH" class="headerlink" title="什么是 SSH"></a>什么是 SSH</h4><ul>
+<li>SSH 是一种<strong>网络协议</strong>，该协议用于计算机间<strong>通信/登录信息的加密</strong></li>
+<li>使用场景主要是<strong>远程登录</strong></li>
+<li>早期，互联网通信使用<strong>明文</strong>，一旦被截获，信息则泄露</li>
+<li>而，若 Client 通过 SSH 协议加密登录 Server, 我们则认为这种登录是安全的，即使登录信息中途被截获</li>
+</ul>
+<h4 id="SSH-的实现"><a href="#SSH-的实现" class="headerlink" title="SSH 的实现"></a>SSH 的实现</h4><ul>
+<li>SSH 是一种协议</li>
+<li>实现版本多样<ul>
+<li>Linux 中实现版本是 OpenSSH</li>
+<li>Windows 中则是 PuTTY</li>
+</ul>
 </li>
 </ul>
-<!--more-->
-
+<a id="more"></a>
+<h4 id="SSH-登录基本用法"><a href="#SSH-登录基本用法" class="headerlink" title="SSH 登录基本用法"></a>SSH 登录基本用法</h4><ul>
+<li>Client 上远程登录 Server, Server 的用户名：user，域名：hostname</li>
+<li>Client 上执行命令行：<strong>ssh user@hostname</strong>，用于<strong>发起登录请求</strong>，后面<strong>需要输入登录密码</strong><ul>
+<li>Client, Server 相同用户名，则可省略user，即：ssh hostname</li>
+<li>SSH 默认端口22，若 Server 更改了端为222，登录命令行为：<strong>ssh -p 222 user@hostname</strong></li>
+</ul>
+</li>
+</ul>
+<h4 id="SSH-登录流程"><a href="#SSH-登录流程" class="headerlink" title="SSH 登录流程"></a>SSH 登录流程</h4><ol>
+<li>Client 发起登录请求，即 ssh user@hostname</li>
+<li>Server 接收 Client 的登录请求，并<strong>将自己的公钥发给 Client</strong></li>
+<li>Client 接收并使用这个公钥 <strong>加密登录密码</strong>，并将<strong>加密后的密码</strong>发送给 Server</li>
+<li>Server 用自己的私钥 解密发送过来的<strong>用自己的公钥加密过的密码</strong></li>
+<li>如果解密后的 密码正确，则同意 Client 登录</li>
+</ol>
+<h4 id="登录过程出现的中间人攻击"><a href="#登录过程出现的中间人攻击" class="headerlink" title="登录过程出现的中间人攻击"></a>登录过程出现的中间人攻击</h4><ul>
+<li>上述 1-&gt;2 步骤之间，Fake_Server 截获了 登录信息，并将伪造的公钥 颁发给 Client</li>
+<li>Client 用 伪造公钥 加密自己的密码，再发送，又被截获</li>
+<li>Fake_Server <strong>获得了你的密码</strong></li>
+<li>Fake_Server 拿着Client 的密码 登录 真实 Server</li>
+</ul>
+<h4 id="中间人攻击的原因"><a href="#中间人攻击的原因" class="headerlink" title="中间人攻击的原因"></a>中间人攻击的原因</h4><ul>
+<li>Client 不能断定接收到的公钥的<strong>正确性</strong></li>
+<li>公钥<strong>并没有被公</strong>正，都是<strong>每个Server 颁发自己的</strong></li>
+<li>解决办法：Server 在自己的官网公示出自己的公钥，Client <strong>自行确认</strong></li>
+</ul>
+<h4 id="口令-密码登录-详解-SSH-登录流程"><a href="#口令-密码登录-详解-SSH-登录流程" class="headerlink" title="口令/密码登录-详解 SSH 登录流程"></a>口令/密码登录-详解 SSH 登录流程</h4><ol>
+<li>Client 发出登录请求</li>
+<li><p>Server 返还一个公钥, 提示 Client 是否接收</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ ssh user@host</span><br><span class="line"></span><br><span class="line">The authenticity of host &apos;host (12.18.429.21)&apos; can&apos;t be established. //host 地址</span><br><span class="line"></span><br><span class="line">RSA key fingerprint is 98:2e:d7:e0:de:9f:ac:67:28:c2:42:2d:37:16:58:4d. //公钥信息</span><br><span class="line"></span><br><span class="line">Are you sure you want to continue connecting (yes/no)?</span><br><span class="line">//提示Client 当前无法确认 host 的真实性，问其是否继续连接</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Client权衡后决定接收，回车</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">　Warning: Permanently added &apos;host,12.18.429.21&apos; (RSA) to the list of known hosts.</span><br><span class="line">　//将 host 的 公钥 存放到 known_hosts 文件中</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Cleint 提示：输入密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Password: (enter password)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>成功登录</p>
+</li>
+<li>下次登录该主机，因为 known_hosts 目录下 已经存在该主机的 公钥，直接跳到 输入密码阶段</li>
+</ol>
+<h4 id="注"><a href="#注" class="headerlink" title="注"></a>注</h4><ul>
+<li>~/.ssh/known_hosts 文件存放 <strong>可信赖的远程主机的公钥</strong></li>
+<li>每个用户都有自己的 known_hosts 文件，系统也有一个该文件，用来保存对<strong>所有用户都信赖的远程主机的公钥</strong></li>
+<li><h4 id="公钥登录"><a href="#公钥登录" class="headerlink" title="公钥登录"></a>公钥登录</h4></li>
+<li>上例使用密码登录，需每次输入密码，比较麻烦</li>
+<li>公钥登录原理<ol>
+<li>前提：Client 生成自己的公钥、私钥，命令行: ssh-keygen -t rsa </li>
+<li>Client 首先将自己的公钥 存到 Server 上，意味着<strong>该用户有权访问Server</strong></li>
+<li>Client 请求登录时，Server 返回一段<strong>随机字符</strong>串给 Client</li>
+<li>Client 用 自己的私钥对<strong>随机字符串</strong>加密，并发回给 Server</li>
+<li>Server 用之前存放的 公钥解密，如果成功，则说明用户可信<strong>直接登录成功</strong></li>
+</ol>
+</li>
+</ul>
+<h4 id="注-1"><a href="#注-1" class="headerlink" title="注"></a>注</h4><ul>
+<li>Client 生成公钥秘钥后，即执行：ssh-keygen -t rsa </li>
+<li>$HOME/.ssh/目录会生成两个文件<ul>
+<li>id_rsa.pub 公钥</li>
+<li>id_rsa 私钥</li>
+</ul>
+</li>
+<li>Client 将公钥传送到 Server 上，命令行：ssh-copy-id user@hostname</li>
+<li>此刻登录无需 密码</li>
+<li>Server 保存用户公钥的位置<ul>
+<li>$HOME/.ssh/authorized_keys 文件中，多个Client的公钥依次追加到文件末尾 </li>
+</ul>
+</li>
+<li><p>/etc/ssh/sshd_config 文件 删除以下注释</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># RSAAuthentication yes</span><br><span class="line"># PubkeyAuthentication yes</span><br><span class="line"># AuthorizedKeysFile .ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启 SSH 服务</p>
+<ul>
+<li>service ssh restart //ubuntu</li>
+<li>/etc/init.d/ssh restart //debian</li>
+</ul>
+</li>
+</ul>
+<h5 id="参考：http-www-ruanyifeng-com-blog-2011-12-ssh-remote-login-html"><a href="#参考：http-www-ruanyifeng-com-blog-2011-12-ssh-remote-login-html" class="headerlink" title="参考：http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html"></a>参考：<a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html</a></h5>
         
         </div>
         <footer class="article-footer">
@@ -259,7 +320,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/01/08/first-blog/" data-id="cjc8r68sj00021ijxwg6kyu4u" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://yoursite.com/2018/01/10/SSH 原理与应用/" data-id="cjc8r68sc00001ijxei00u2wh" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -334,15 +395,11 @@
         
 <nav id="article-nav">
     
-        <a href="/2018/01/08/request-parm-binging-in-SpringMVC/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    request parm binging in SpringMVC
-                
-            </div>
-        </a>
     
+        <a href="/2018/01/10/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Hello World</div>
+        </a>
     
 </nav>
 
